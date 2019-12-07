@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>Intro.SortingAlgorithms.SelectionSort</StartupObject>
+    <StartupObject>Intro.SortingAlgorithms.MergeSort</StartupObject>
   </PropertyGroup>
 
 </Project>

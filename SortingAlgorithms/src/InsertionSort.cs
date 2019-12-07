@@ -15,33 +15,14 @@ namespace Intro.SortingAlgorithms
 		
 		private static void DoInsertionSort(int[] arr)
 		{
-			for(int i=1; i<arr.Length; i++)
+			for(int sortedSoFar=0; sortedSoFar<arr.Length-1; sortedSoFar++)
 			{
-				int insertionIndex = FindInsertionIndex(arr, i);
-				ArrayInsert(arr, insertionIndex, i);
+				// take first unsorted element and bubble it down to its right position
+				for(int i=sortedSoFar+1; i>0 && arr[i] < arr[i-1]; i--)
+				{
+					Utils.Swap(arr, i, i-1);
+				}			
 			}
-		}
-		
-		private static int FindInsertionIndex(int[] arr, int lastIndex)
-		{
-			int insertionIndex=0;
-			while(insertionIndex<lastIndex && arr[lastIndex]>arr[insertionIndex])
-			{
-				insertionIndex++;
-			}
-			
-			return insertionIndex;
-		}
-		
-		private static void ArrayInsert(int[] arr, int insertionIndex, int lastIndex)
-		{
-			int insertionValue = arr[lastIndex];
-			for(int i=lastIndex; i>insertionIndex; i--)
-			{
-				arr[i]=arr[i-1];
-			}
-			
-			arr[insertionIndex]=insertionValue;
 		}
 	}
 }
