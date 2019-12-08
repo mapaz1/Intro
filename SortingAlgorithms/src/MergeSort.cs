@@ -30,23 +30,10 @@ namespace Intro.SortingAlgorithms
 
         private static void Merge(int[] arr, int[] left, int[] right)
         {
-            int i=0, j=0, totalLength = left.Length + right.Length;
-            for(int k=0; k<totalLength; k++)
+            int i=0, j=0, k=0;
+            while(i<left.Length && j<right.Length)
             {
-                if(i<left.Length && j<right.Length)
-                {
-                    if(left[i]<right[j])
-                    {
-                        arr[k] = left[i];
-                        i++;
-                    }
-                    else
-                    {
-                        arr[k] = right[j];
-                        j++;
-                    }
-                }
-                else if(i<left.Length)
+                if(left[i]<right[j])
                 {
                     arr[k] = left[i];
                     i++;
@@ -56,6 +43,17 @@ namespace Intro.SortingAlgorithms
                     arr[k] = right[j];
                     j++;
                 }
+                k++;
+            }
+
+            for(; i<left.Length; i++,k++)
+            {
+                arr[k] = left[i];
+            }
+                
+            for(; j<right.Length; j++, k++)
+            {
+                arr[k] = right[j];
             }
         }
 

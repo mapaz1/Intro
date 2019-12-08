@@ -17,12 +17,25 @@ namespace Intro.SortingAlgorithms
             return arr;
         }
         
-		
 		public static void Swap(int[] arr, int i, int j)
 		{
 			int temp = arr[i];
 			arr[i] = arr[j];
 			arr[j] = temp;
-		}	
+		}
+
+        public static bool IsSorted(int[] arr)
+        {
+            bool sorted = true;
+            for(int i=0; i<arr.Length-1 && sorted; i++)
+            {
+                if(arr[i]>arr[i+1])
+                {
+                    sorted = false;
+                }
+            }
+
+            return sorted;
+        }
     }
 }
